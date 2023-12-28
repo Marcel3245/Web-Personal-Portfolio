@@ -1,0 +1,385 @@
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+li, .nav-links{
+  list-style: none;
+}
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: fit-content;
+  gap: 0.5rem;
+  font-size: 22px;
+  color: #c1bebe;
+}
+.nav-link{
+  padding-left: 20px;
+  transition: 0.3s ease-in-out all;
+}
+
+.nav-link:hover{
+  color: white;
+  font-weight: 500;
+}
+
+.w3-header {
+  --header-footer-color: rgb(12, 12, 86)!important;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 13vh;
+  background-color: var(--header-footer-color);
+  box-shadow: 1px 0px 9px rgb(0, 0, 0.2);
+  font-family: Blippo, fantasy;
+}
+
+.logo-container {
+  margin-top: -25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.w3-logo {
+  font-size: 36px;
+  color: #c1bebe;
+  letter-spacing: 1.5px;
+  font-weight: 300;
+}
+
+.logo-container p:last-child {
+  margin-top: -45px;
+  padding-left: 60px;
+  padding-bottom: 5px;
+}
+
+.blog-entry {
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-image {
+  position: relative;
+  height: 40vh; /* Adjust the height as needed */
+  overflow: hidden;
+}
+
+.blog-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.5s ease; /* Add a smooth transition effect */
+}
+
+.blog-entry:hover .blog-image img {
+  transform: scale(1.1); /* Adjust the scale factor as needed */
+}
+
+/* Popular posts */
+.popular_posts-img{
+  float: left;
+  width:  50px;
+  height: 50px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+}
+
+/* Footer */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #c1bebe;
+}
+
+#LinkedIn:hover, #Thingiverse:hover, #GitHub:hover{
+  color: white;
+}
+
+.social-media a {
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* POST DETAIL */
+.container{
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+.article-container{
+  box-sizing: border-box;
+  width: 80%;
+  background-color: white;
+  padding: 32px;
+  max-width: 1024px!important;
+  box-shadow: 0 1px 5px 2px rgba(38,59,94,0.3);
+}
+
+.article-content{
+  box-sizing: border-box;
+  background-color: white;
+  min-height: 100vh;
+  padding: 32px;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif!important;
+}
+
+.title{
+  padding-bottom: 2px;
+  margin-top: -15px;
+  border-bottom: 1px solid black;
+  text-align: center;
+  font-weight: 500;
+  font-size: 2.5rem;
+}
+
+.content{
+  padding-top: 20px;
+}
+
+.article-footer{
+  font-size: 1rem;
+  font-style: italic;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 300;
+  text-align: right;
+  color: grey;
+  border-bottom: 1px solid black;
+  padding-right: 10px;
+}
+
+
+
+/* COMMMENT */
+.comments-container{
+  box-sizing: border-box;
+  background-color: #f1f1f1;
+  padding: 32px;
+  border: 1px solid #b5b5b5;
+  border-radius: 25px;
+}
+
+.comment-title{
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  padding-bottom: 10px;
+  padding-top: 5px;
+}
+
+
+input[type=text], input[type=email]{
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+  font-family: monospace;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+} 
+
+.col-25 {
+  float: left;
+  padding-top: 10px;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px; 
+}
+
+.label-comment{
+  padding-left: 20px;
+  display: inline-block;
+
+  font-family: monospace;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+}
+
+#comment-body {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+
+  font-family: monospace;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+}
+
+.alert-success {
+  background-color: rgb(12, 12, 86);
+  color: #c1bebe; 
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bolder;
+  text-align: center;
+}
+
+
+.comments-box {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.comment-author {
+  font-weight: bold;
+}
+
+.comment-date {
+  font-size: 14px;
+  color: #888;
+  padding-left: 5px;
+}
+
+.comment-body {
+  margin-top: -13px;
+  padding-left: 20px;
+}
+
+.btn-submit{
+  background-color: rgb(12, 12, 86);
+  color: white; 
+  padding: 5px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-left: 40px;
+  margin-top: -20px;
+}
+
+/* ABOUT-ME */
+.about-me-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.about-me-left {
+  flex: 1;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.about-me-title {
+  color: black; /* Add your desired text color */
+}
+
+.about-me-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: black; /* Add your desired text color */
+}
+
+.about-me-email {
+  font-size: 16px;
+  color: black; /* Add your desired text color */
+  margin-bottom: 10px;
+}
+
+.download-resume-btn {
+  padding: 10px 20px;
+  background-color: rgb(12, 12, 86); /* Add your desired button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  border: 1px solid rgb(12, 12, 86);
+}
+
+.download-resume-btn:hover {
+  background-color: white;
+  color: rgb(12, 12, 86);
+  font-weight: 650;
+}
+
+.about-me-right {
+  flex: 1;
+}
+
+.about-me-image img {
+  width: 300px;
+  height: auto;
+  border-radius: 5px;
+  border: 2px solid #e6e6e6;
+}
+
+
+
+#contactForm {
+  margin-left: 50px;
+  width: 40%;
+}
+
+#email{
+  margin-bottom: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+#about-me-submit{
+  padding: 10px 20px;
+  margin-top: 5px;
+  background-color: rgb(12, 12, 86); /* Add your desired button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  border: 1px solid rgb(12, 12, 86);
+  margin-left: 37%;
+}
+
+#about-me-submit:hover {
+  background-color: white;
+  color: rgb(12, 12, 86);
+  font-weight: 650;
+}

@@ -1,0 +1,85 @@
+{% extends './homepage.html' %}
+{% load static %}
+
+{% block content %}
+<div>
+    <article class="container">
+        <div class="article-container">
+            <div class="article-content">
+                <h1 class="title">{{ post.title|title }}</h1>
+                <p class="content">{{ post.content|safe }}</p>
+                <h6 class="article-footer">{{ post.author|title }}, {{ post.updated_on|date:"F j, Y" }}</h6>
+            </div>
+
+
+
+
+            <div class="comments-container">
+                {% if comments %}
+                <h3 class="comment-title minus-margin">Comments</h3>
+                {% endif %}
+                {% for comment in comments %}
+                <div class="comments-box">
+                    <div class="comments">
+                        <div class="comment-header">
+                            <p class="comment-author">{{ comment.name }}</p>
+                            <p class="comment-date text-muted"> - {{ comment.created_on|date:"d E, Y" }}</p>
+                        </div>
+                        <div class="comment-body">
+                            {{ comment.body | linebreaks }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+
+                <div class="card-body">
+                {% if new_comment %}
+                    <div class="alert alert-success" role="alert">
+                        Your comment is awaiting moderation!
+                    </div>
+                    {% else %}
+                    <br>
+                    <hr/>
+                    <h3 class="comment-title">Leave a comment</h3>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-25">
+                                <label class="label-comment" for="name">Name</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="name" name="name" placeholder="Your name..." required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label class="label-comment" for="email">Email</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="email" id="email" name="email" placeholder="Your email...(not required)">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-25">
+                                    <label class="label-comment" for="comment-body">Subject</label>
+                                </div>
+                                <div class="col-75">
+                                    <textarea id="comment-body" name="body" placeholder="Write something..." required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Submit</button>
+                    </form>
+                {% endif %}
+            </div>
+
+        </div>
+</div>
+</article>
+</div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+

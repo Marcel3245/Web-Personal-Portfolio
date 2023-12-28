@@ -1,0 +1,107 @@
+{% extends './homepage.html' %}
+{% load static %}
+
+{% block contentProject %}
+{% if posts %}
+{% for post in posts %}
+{% if post.category == 0 or post.category == 1 %}
+<div class="w3-card-4 w3-margin w3-white blog-entry">
+    <div class="blog-image">
+        <img src="{{ post.image.url }}" alt="Project">
+    </div>
+    <div class="w3-container text-container">
+        <h3><b style="color: #0d0d73!important;">{{ post.title }}</b></h3>
+        <h5>{{ post.version }}, <span class="w3-opacity">{{ post.created_on|date:"F j, Y" }}</span>
+        </h5>
+    </div>
+
+    <div class="w3-container">
+        <p>{{ post.description }}</p>
+        <div class="w3-row">
+            <div class="w3-col m8 s12">
+                <p><a href="{{ post.get_absolute_url }}"><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE
+                    »</b></button></a></p>
+            </div>
+            <div class="w3-col m4 w3-hide-small">
+                <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">{{ post.num_comments }}</span></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+{% endif %}
+{% endfor %}
+{% else %}
+    <h3><b style="color: #0d0d73!important; padding-left: 300px;">Are you lost? >; </b></h3>
+{% endif %}
+{% endblock %}
+
+{% block contentPublication %}{% endblock %}
+{% block contentAbout %}{% endblock %}
+
+{% block popularPosts %}
+<div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+        <h4>Popular Posts</h4>
+    </div>
+    <ul class="w3-ul w3-hoverable w3-white">
+        {% for post in popular_posts %}
+        <a href="{{ post.get_absolute_url }}">
+            <li class="w3-padding-16">
+                <img src="{{ post.image.url }}" alt="Image"
+                    class="popular_posts-img w3-left w3-margin-right">
+                <span class="w3-large">{{ post.title|title }}</span><br>
+                <span>{{ post.version }}</span>
+            </li>
+        </a>
+        {% endfor %}
+    </ul>
+</div>
+<hr>
+{% endblock %}
+
+{% block tag %}
+<div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+        <h4>Tags</h4>
+    </div>
+    <div class="w3-container w3-white">
+        <p>
+            {% for t in all_tags %}
+            {% if t.name == tag.name %}
+                <span class="w3-tag w3-black w3-margin-bottom">#{{ t.name|title }}</span> 
+            {% else %}
+                <a href="{{ t.get_absolute_url }}" class="w3-tag w3-light-grey w3-small w3-margin-bottom">#{{ t.name|title }}</a>
+            {% endif %}
+            {% endfor %}
+        </p>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top"
+    style="box-shadow: 1px 0px 9px rgb(0, 0, 0.2); background-color: rgb(12, 12, 86)!important; text-align: center;">
+
+    <div style="display: flex; justify-content: flex-start; align-items: center;">
+        {% if posts.has_previous %}
+        <a href="?page={{ posts.previous_page_number }}"><button class="w3-button w3-black w3-padding-large w3-margin-right">&laquo; Previous</button></a>
+        {% endif %}
+        {% if posts.has_next == 0 %}
+        <a><button class="w3-button w3-disabled w3-black w3-padding-large">Next</button></a>
+        {% endif %}
+        {% if posts.has_previous == 0 %}
+        <a><button class="w3-button w3-black w3-disabled w3-padding-large">Previous</button></a>
+        {% endif %}
+        {% if posts.has_next %}
+        <a href="?page={{ posts.next_page_number }}"><button class="w3-button w3-black w3-padding-large w3-margin-left">Next »</button></a>
+        {% endif %}
+    </div>
+    
+    <div style="margin-top: -35px;">
+        <span class="current">
+            Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+        </span>
+    </div>
+</footer>
+{% endblock %}

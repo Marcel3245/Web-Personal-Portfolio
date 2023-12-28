@@ -1,0 +1,41 @@
+{% extends './homepage.html' %}
+{% load static %}
+
+{% block title %}About-me{% endblock %}
+
+{% block content %}
+    <div class="about-me-container">
+        <div class="about-me-left">
+            <div class="about-me-text-content">
+                <h2 class="about-me-title" style="font-weight: 600;">
+                    About Me
+                </h2>
+                <p class="about-me-text">{{ newest_about_me.description|safe }}</p>
+                <p class="about-me-email">
+                    <a style="font-weight: 500;">Email:</a> {{ newest_about_me.version }}</p>
+                <button id="showFormBtn" class="download-resume-btn">Ask for Resume</button>
+            </div>
+        </div>
+        <div class="about-me-right">
+            <div class="about-me-image">
+                <img src="{{ newest_about_me.image.url }}" alt="About Me Image">
+            </div>
+        </div>
+    </div>
+
+    <form method="post" id="contactForm" class="hidden">
+        {% csrf_token %}
+        <label for="email">Email:</label>
+        <input type="email" id="name" name="name" required placeholder="Enter the email where I can contact you.">
+    
+        <label for="reason">Reason:</label>
+        <input type="text" name="body" required placeholder="Please share a brief reason for getting in touch.">
+        <button id="about-me-submit" type="submit">Submit</button>
+    </form>
+    
+    <script>
+        document.getElementById('showFormBtn').addEventListener('click', function() {
+            var contactForm = document.getElementById('contactForm');
+            contactForm.classList.toggle('hidden');});
+    </script>
+{% endblock %}
